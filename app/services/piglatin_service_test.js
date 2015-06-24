@@ -1,23 +1,33 @@
 // generic javascript convention: declares local scope only
 'use strict';
 
-var mockPigLatinInstance;
-beforeEach(module('pigLatinServices'));
+describe("Pig Latin Servicing", function() {
+  //  keep in local scope by adding var Blah
+  var pigLatinize;
 
-// beforeEach(function() {
-//   mockPigLatind = {alert: jasmine.createSpy()};
+  // require the pigLatinServiceModule from piglatin_servie.js
+  beforeEach(module('pigLatinServiceModule'));
 
-//   module(function($provide) {
-//     $provide.value('$window', mock);
-//   });
+  beforeEach(function() {
+    // Injector dependency --> Creates pigLatinize for you
+    inject(function($injector) {
+      pigLatinize = $injector.get('pigLatinServices');
+    });
+  });
 
-//   inject(function($injector) {
-//     notify = $injector.get('notify');
-//   });
-// });
+  it("should expect a string parameter and not a number", function() {
+    var pigLatinizeResult = pigLatinize(1);
+    expect(pigLatinizeResult).toBeFalse();
+  });
 
-it("should expect a string parameter and return a string", function() {
-  // expect(bar).toEqual(123);
-  expect(string).toBeString();
+  it("should expect a word beginning with a constant to return string with the first constant added to the end of string plus ay at the end", function() {
+    var pigLatinizeResult = pigLatinize("pig");
+    expect(pigLatinizeResult).toEqual("igpay");
+  });
+
+  it("should expect a word beginning with a vowel to return the same string with the word yay at the end", function() {
+    var pigLatinizeResult = pigLatinize("eat");
+    expect(pigLatinizeResult).toEqual("eatyay");
+  });
 
 });
