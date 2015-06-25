@@ -17,16 +17,22 @@ describe("Pig Latin Servicing", function() {
 
   it("should expect a string parameter and not a number", function() {
     var pigLatinizeResult = pigLatinize(1);
+    console.log("Argument is a number");
+    console.log(pigLatinizeResult);
     expect(pigLatinizeResult).toBeFalse();
   });
 
   it("should expect a word beginning with a constant to return string with the first constant added to the end of string plus ay at the end", function() {
     var pigLatinizeResult = pigLatinize("pig");
+    console.log("Argument is pig");
+    console.log(pigLatinizeResult);
     expect(pigLatinizeResult).toEqual("igpay");
   });
 
   it("should expect a word beginning with a vowel to return the same string with the word yay at the end", function() {
     var pigLatinizeResult = pigLatinize("eat");
+    console.log("Argument is eat");
+    console.log(pigLatinizeResult);
     expect(pigLatinizeResult).toEqual("eatyay");
   });
 
