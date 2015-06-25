@@ -19,6 +19,7 @@ describe("Pig Latin Servicing", function() {
     var pigLatinizeResult = pigLatinize(1);
     console.log("Argument is a number");
     console.log(pigLatinizeResult);
+    // Breaking here... calling isVowel on number
     expect(pigLatinizeResult).toBeFalse();
   });
 
