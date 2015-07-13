@@ -23,7 +23,7 @@ pigLatinServiceModule.service('pigLatinServices', function() {
     console.log("Word begins with vowel = " + wordBeginsWithVowel);
 
     // If argument is a number
-    if (typeof pigLatinArgument == "number") {
+    if (typeof pigLatinArgument === "number") {
       return false;
 
     // If string starts with a vowel
